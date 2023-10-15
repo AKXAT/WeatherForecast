@@ -1,0 +1,18 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 50px; 
+    height: 100vh; /* This ensures the container covers the entire viewport height */
+  }
+  
+  .card {
+    text-align: center;
+    padding: 20px;
+    padding-top: 10px;
+    border: 1px solid #ccc;
+    flex-direction: column; /* To stack the header and body vertically */
+    justify-content: space-between; /* To space them equally from top and bottom */
+    height: 100%; /* Occupy the entire height of the container */
+  }
+  
