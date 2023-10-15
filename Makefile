@@ -12,4 +12,5 @@ $(VENV)/bin/activate: requirements.txt
 clean:
 	# Remove the virtual environment and any other generated files
 	rm -rf venv
-	find . -type f -name ‘*.pyc’ -delete
+	rm -rf _pycache__
+	rm -rf backend/__pycache__
