@@ -8,7 +8,7 @@
     <title>WeatherForecast</title>
 </head>
 <body>
-    <nav class="navbar navbar-dark bg-primary">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container">
             <a class="navbar-brand" href="/" style="text-decoration: none;">
                 <h1 style="font-size: 24px; color: white;">☀️ Weather Forecast</h1>
@@ -17,10 +17,13 @@
     </nav>
 
     <div class="container mt-4">
-        <div class="card">
-            <div class="card-body bg-light">
-                <h3 class="card-title text-primary">Weather Forecast Application</h3>
-                <p class="card-text">Get real-time weather updates and forecasts for the next five days.</p>
+        <div class="jumbotron text-center bg-light">
+            <h1 class="display-4">Weather Forecast Application</h1>
+            <p class="lead">Get real-time weather updates and forecasts for the next five days.</p>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
                 <form action="/" method="POST">
                     <div class="input-group mb-3">
                         <input type="text" name="city" class="form-control" placeholder="Enter a city name" id="city">
