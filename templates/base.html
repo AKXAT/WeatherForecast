@@ -6,35 +6,34 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="homepage.css">
     <title>WeatherForecast</title>
-    <nav class="navbar bg-dark border-bottom border-body" data-bs-theme="dark">
-        <div class="container-fluid">
-            <h1 class="navbar-brand mb-0 h1" style="color: white;">
-                <a href="/" style="color: white; text-decoration: none;">
-                  ☀️ Weather Forecast
-                </a>
-            </h1>
-        </div>
-    </nav>
 </head>
 <body>
+    <nav class="navbar navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="/" style="text-decoration: none;">
+                <h1 style="font-size: 24px; color: white;">☀️ Weather Forecast</h1>
+            </a>
+        </div>
+    </nav>
+
     <div class="container mt-4">
         <div class="card">
-          <div class="card-header">
-            ☀️  ☁️  🌤️  🌦️  🌧️
-          </div>
-          <div class="card-body">
-            <h5 class="card-title">Search City below</h5>
-            <form action="/" method="POST">
-                <div class="mb-3">
-                  <label for="city" class="form-label">Get real-time weather updates and forecasts for the next five days with our Weather Forecast Application</label>
-                  <input type="text" name="city" class="form-control" id="city">
-                </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-              </form>
-          </div>
+            <div class="card-body bg-light">
+                <h3 class="card-title text-primary">Weather Forecast Application</h3>
+                <p class="card-text">Get real-time weather updates and forecasts for the next five days.</p>
+                <form action="/" method="POST">
+                    <div class="input-group mb-3">
+                        <input type="text" name="city" class="form-control" placeholder="Enter a city name" id="city">
+                        <div class="input-group-append">
+                            <button type="submit" class="btn btn-primary">Search</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
-        {% block body %}
-        {% endblock  %}
-    </div>      
+    </div>
+
+    {% block body %}
+    {% endblock %}
 </body>
 </html>

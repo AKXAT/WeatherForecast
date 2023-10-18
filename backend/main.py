@@ -31,3 +31,18 @@ def get_current_temprature(city: str) -> any:
     params = {"latitude": lat, "longitude": long, "current": "temperature_2m"}
     first = requests.get(url=url, params=params)
     return first.json()
+
+
+def choose_emoji(tempratrue: float) -> str:
+    if 0 < tempratrue < 15:
+        return "❄️"
+    elif 15 < tempratrue < 25:
+        return "🌤️"
+    elif 25 < tempratrue < 35:
+        return "☀️"
+    elif tempratrue > 35:
+        return "🔥"
+    elif tempratrue < 0:
+        return "☃️"
+    else:
+        return "⚠️"

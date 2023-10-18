@@ -1,5 +1,33 @@
 {% extends 'base.html' %}
 
 {% block body %}
-<h1>{{current_weather}}</h1>
-{% endblock  %}
+<div class="container mt-4">
+    <div class="card">
+        <div class="card-header">
+            <h1 class="card-title">Weather Information</h1>
+        </div>
+        <div class="card-body">
+            <!-- Latitude and Longitude -->
+            <div class="row mb-4">
+                <div class="col-md-6">
+                    <p class="mb-0"><strong>Latitude:</strong></p>
+                    <p class="skeleton-loader">{{ lat }}</p>
+                </div>
+                <div class="col-md-6">
+                    <p class="mb-0"><strong>Longitude:</strong></p>
+                    <p class="skeleton-loader">{{ long }}</p>
+                </div>
+            </div>
+
+            <!-- Temperature and Emoji -->
+            <div class="mb-4">
+                <p class="mb-1"><strong>Temperature:</strong></p>
+                <h2>
+                    <span class="badge badge-primary p-2">{{ current_weather }} °C</span>
+                    <span class="badge badge-primary p-2 ml-2">{{ emoji }}</span>
+                </h2>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
