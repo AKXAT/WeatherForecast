@@ -13,6 +13,7 @@ def index():
 
 @app.route("/<city>")
 def weather_page(city):
+    actual_weather_code = 100
     weather_call = weather_methods.get_current_temprature(city=city)
     if weather_call is None:
         _str = "No Data Avaliable"
@@ -22,7 +23,12 @@ def weather_page(city):
     lat = weather_call.get("latitude")
     long = weather_call.get("longitude")
     current_weather = weather_call.get("current").get("temperature_2m")
-    emoji = weather_methods.choose_emoji(current_weather)
+    weather_code = weather_call.get("current").get("weathercode")
+    if weather_code is not None:
+        actual_weather_code = weather_code
+    emoji = weather_methods.choose_emoji(
+        current_weather, actual_weather_code=actual_weather_code
+    )
     return render_template(
         "weather.html", lat=lat, long=long, current_weather=current_weather, emoji=emoji
     )

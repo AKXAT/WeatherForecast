@@ -28,21 +28,80 @@ def get_current_temprature(city: str) -> any:
     lat, long = get_lat_long(city_name=city)
     if lat is None or long is None:
         return None
-    params = {"latitude": lat, "longitude": long, "current": "temperature_2m"}
+    params = {
+        "latitude": lat,
+        "longitude": long,
+        "current": "temperature_2m,weathercode",
+    }
     first = requests.get(url=url, params=params)
     return first.json()
 
 
-def choose_emoji(tempratrue: float) -> str:
-    if 0 < tempratrue < 15:
-        return "❄️"
-    elif 15 < tempratrue < 25:
-        return "🌤️"
-    elif 25 < tempratrue < 35:
-        return "☀️"
-    elif tempratrue > 35:
-        return "🔥"
-    elif tempratrue < 0:
-        return "☃️"
+def get_5days_temprature(city: str) -> any:
+    pass
+
+
+def weather_code(code: int) -> str:
+    if code == 0:
+        return "🌈 Clear Sky"
+    elif code == 1:
+        return "🌄 Mainly Clear"
+    elif code == 2:
+        return "⛅️ Partly Cloudy"
+    elif code == 45:
+        return "🌁 Fog"
+    elif code == 48:
+        return "😶‍🌫️ Depositing Rime Fog"
+    elif code == 51:
+        return "🌧️ Light Drizzle"
+    elif code == 53:
+        return "☔️ Moderate Drizzle"
+    elif code == 55:
+        return "⛈️ Heavy Drizzle"
+    elif code == 61:
+        return "🌦️ Slight Rain"
+    elif code == 63:
+        return "🌧️ Moderate Rain"
+    elif code == 65:
+        return "⛈️ Heavy Rain"
+    elif code == 71:
+        return "❅ Slight Snowfall"
+    elif code == 73:
+        return "⛄️ Moderate Snowfall"
+    elif code == 75:
+        return "☃️ Heavy Snowfall"
+    elif code == 77:
+        return "❄️ Snow grains"
+    elif code == 80:
+        return "💧 Slight Rain Showers"
+    elif code == 81:
+        return "☔︎ Moderate Rain Showers"
+    elif code == 82:
+        return "⛈ Violent Rain Showers"
+    elif code == 85:
+        return "🏂 Slight Snow Showers"
+    elif code == 86:
+        return "☃️ Heavy Snow Showers"
+    elif code == 95:
+        return "⚡️ Thunderstorm"
+    elif code == 96:
+        return "🌊 Thunderstorm with Slight Hail"
+    elif code == 99:
+        return "🌊 Thunderstorm with Heavy Hail"
     else:
-        return "⚠️"
+        return "🌱 Pleasent Day"
+
+
+def choose_emoji(tempratrue: float, actual_weather_code=100) -> str:
+    if 0 < tempratrue < 15:
+        return "❄️ " + weather_code(actual_weather_code)
+    elif 15 < tempratrue < 25:
+        return "🌤️ " + weather_code(actual_weather_code)
+    elif 25 < tempratrue < 35:
+        return "☀️ " + weather_code(actual_weather_code)
+    elif tempratrue > 35:
+        return "🔥 " + weather_code(actual_weather_code)
+    elif tempratrue < 0:
+        return "☃️ " + weather_code(actual_weather_code)
+    else:
+        return "⚠️" + weather_code(actual_weather_code)
