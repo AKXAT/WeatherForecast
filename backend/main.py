@@ -38,7 +38,18 @@ def get_current_temprature(city: str) -> any:
 
 
 def get_5days_temprature(city: str) -> any:
-    pass
+    lat, long = get_lat_long(city_name=city)
+    if lat is None or long is None:
+        return None
+    params = {
+        "latitude": lat,
+        "longitude": long,
+        "daily": "temperature_2m_max,temperature_2m_min",
+        "timezone": "GMT",
+        "forecast_days": "5",
+    }
+    first = requests.get(url=url, params=params)
+    return first.json()
 
 
 def weather_code(code: int) -> str:
