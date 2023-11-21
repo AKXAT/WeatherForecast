@@ -4,6 +4,18 @@
 
 The Weather Information App is a simple web application built using Flask, Jinja2, and Bootstrap. It provides users with real-time weather data, including latitude, longitude, temperature, and a visual representation of the temperature in the form of emojis. The app offers an intuitive and aesthetically pleasing interface for accessing weather information.
 
+## Usages. 
+
+### Forent-End 
+1. HTML 
+2. CSS
+3. BootStrap
+
+### Back-End
+1. Python
+2. Flask (Python Package)
+3. Requests (Python Package)
+
 ## Screenshots
 
 ### Home Page
@@ -33,7 +45,7 @@ To run the Weather Information App on your local machine, follow these steps:
    git clone https://github.com/yourusername/weather-information-app.git
    cd weather-information-app
 
-2. run the command `make setup` to install the depedencies
+2. run the command `make setup` to install the depedencies in case you are using Linux. If on Windows , change the branch to temp/windows using the command `git checkout temp/windows` and then run the same command `make setup`
 3. run the commnd `python3 app.py`
 4. Now you can access the Weather Information App in your web browser by visiting http://localhost:5000.
 
