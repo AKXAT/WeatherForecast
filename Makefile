@@ -1,15 +1,16 @@
 VENV = venv
-PYTHON = $(VENV)/bin/python3
-PIP = $(VENV)/bin/pip3
+PYTHON = $(VENV)/Scripts/python
+PIP = $(VENV)/Scripts/pip
 
-setup: $(VENV)/bin/activate
-	python3 -m pip install --upgrade pip
+setup: $(VENV)/Scripts/activate
+	$(PYTHON) -m pip install --upgrade pip
 
-$(VENV)/bin/activate: requirements.txt
-	python3 -m venv $(VENV)
+$(VENV)/Scripts/activate: requirements.txt
+	python -m venv $(VENV)
 	$(PIP) install -r requirements.txt
+
 clean:
 	# Remove the virtual environment and any other generated files
-	rm -rf venv
-	rm -rf _pycache__
-	rm -rf backend/__pycache__
+	rmdir /s /q $(VENV)
+	del /q /s _pycache__
+	del /q /s backend\__pycache__
